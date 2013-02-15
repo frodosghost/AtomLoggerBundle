@@ -6,7 +6,7 @@
 
     <!--
     <parameters>
-        <parameter key="catch_error_log.example.class">CatchError\LogBundle\Example</parameter>
+        <parameter key="catch_error_log.example.class">Manhattan\LogBundle\Example</parameter>
     </parameters>
 
     <services>

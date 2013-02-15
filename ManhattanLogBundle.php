@@ -1,9 +1,9 @@
 <?php
 
-namespace CatchError\LogBundle;
+namespace Manhattan\LogBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class CatchErrorLogBundle extends Bundle
+class ManhattanLogBundle extends Bundle
 {
 }
