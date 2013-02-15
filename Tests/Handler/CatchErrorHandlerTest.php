@@ -22,7 +22,7 @@ class CatchErrorHandlerTest extends TestCase
     }*/
 
     /**
-     * @covers Monolog\Handler\CatchErrorHandler::__construct
+     * @covers Manhattan\LogBundle\Handler\CatchErrorHandler::__construct
      */
     public function testConstruct()
     {
