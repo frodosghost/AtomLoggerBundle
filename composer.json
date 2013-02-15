@@ -1,0 +1,25 @@
+{
+    "name": "catcherror/log-bundle",
+    "description": "A Symfony 2 bundle for interacting with the CatchError API.",
+    "type": "symfony-bundle",
+    "keywords": ["errors", "api"],
+    "homepage": "https://github.com/frodosghost/CatchErrorLogBundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "James Rickard",
+            "email": "james@frodosghost.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.2",
+        "kriswallsmith/buzz": ">=0.7"
+    },
+    "target-dir": "CatchError/LogBundle",
+    "autoload": {
+        "psr-0": {
+            "CatchError\\LogBundle": ""
+        }
+    },
+    "version": "1.0.0"
+}
