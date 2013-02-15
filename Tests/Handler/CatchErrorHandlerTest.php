@@ -4,11 +4,11 @@
  * Test the CatchErrorHandler
  */
 
-namespace Manhattan\Tests\Handler;
+namespace Manhattan\LogBundle\Tests\Handler;
 
-use Monolog\TestCase;
+use Symfony\Bundle\MonologBundle\Tests\TestCase;
 use Monolog\Logger;
-use Manhattan\Handler\CatchErrorHandler;
+use Manhattan\LogBundle\Handler\CatchErrorHandler;
 
 class CatchErrorHandlerTest extends TestCase
 {
@@ -27,7 +27,7 @@ class CatchErrorHandlerTest extends TestCase
     public function testConstruct()
     {
         $handler = new CatchErrorHandler();
-        $this->assertInstanceOf('Manhattan\Handler\CatchErrorHandler', $handler);
+        $this->assertInstanceOf('Manhattan\LogBundle\Handler\CatchErrorHandler', $handler);
     }
 
 }
