@@ -26,7 +26,11 @@ class CatchErrorHandlerTest extends TestCase
      */
     public function testConstruct()
     {
-        $handler = new CatchErrorHandler();
+        $mock_connection = $this->getMockBuilder('Manhattan\LogBundle\Client\Connection')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $handler = new CatchErrorHandler($mock_connection);
         $this->assertInstanceOf('Manhattan\LogBundle\Handler\CatchErrorHandler', $handler);
     }
 

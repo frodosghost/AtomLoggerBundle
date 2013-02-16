@@ -5,6 +5,8 @@ namespace Manhattan\LogBundle\Handler;
 use Monolog\Logger;
 use Monolog\Handler\AbstractProcessingHandler;
 
+use Manhattan\LogBundle\Client\Connection;
+
 /**
 * Handler to send messages to a CatchError server
 *
@@ -13,17 +15,19 @@ use Monolog\Handler\AbstractProcessingHandler;
 class CatchErrorHandler extends AbstractProcessingHandler
 {
     /**
-     * @var Raven_Client the client object that sends the message to the server
+     * @var Connection
      */
-    protected $log_client;
+    private $connection;
 
     /**
      * @param integer $level The minimum logging level at which this handler will be triggered
      * @param Boolean $bubble Whether the messages that are handled can bubble up the stack or not
      */
-    public function __construct($level = Logger::DEBUG, $bubble = true)
+    public function __construct(Connection $connection, $level = Logger::DEBUG, $bubble = true)
     {
         parent::__construct($level, $bubble);
+
+        $this->connection = $connection;
     }
 
     /**
@@ -31,7 +35,7 @@ class CatchErrorHandler extends AbstractProcessingHandler
      */
     protected function write(array $record)
     {
-        $this->ravenClient->captureMessage(
+        /*$this->ravenClient->captureMessage(
             $record['formatted'],
             array(), // $params - not used
             $this->logLevels[$record['level']], // $level
@@ -39,7 +43,7 @@ class CatchErrorHandler extends AbstractProcessingHandler
         );
         if ($record['level'] >= Logger::ERROR && isset($record['context']['exception'])) {
             $this->ravenClient->captureException($record['context']['exception']);
-        }
+        }*/
     }
 
 }
