@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Manhattan\LogBundle\Client;
+namespace Manhattan\LogBundle\Log;
 
 use Buzz\Browser;
 
