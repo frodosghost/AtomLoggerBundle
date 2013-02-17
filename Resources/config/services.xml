@@ -10,6 +10,7 @@
         <parameter key="buzz.browser.class">Buzz\Browser</parameter>
 
         <parameter key="manhattan_log.client.connection.class">Manhattan\LogBundle\Client\Connection</parameter>
+        <parameter key="manhattan_log.handler.catcherror.class">Manhattan\LogBundle\Handler\CatchErrorHandler</parameter>
     </parameters>
 
     <services>
@@ -21,8 +22,12 @@
             <argument type="service" id="buzz.message_factory" />
         </service>
 
-        <service id="manhattan_log_connection" class="%manhattan_log.client.connection.class%">
+        <service id="manhattan.log.connection" class="%manhattan_log.client.connection.class%">
             <argument type="service" id="buzz" />
+        </service>
+
+        <service id="manhattan.log.catecherror" class="%manhattan_log.handler.catcherror.class%">
+            <argument type="service" id="manhattan.log.connection" />
         </service>
     </services>
 

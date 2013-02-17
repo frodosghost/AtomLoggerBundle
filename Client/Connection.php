@@ -26,4 +26,14 @@ class Connection
         $this->browser = $browser;
     }
 
+    public function message($message, $level, $level_name=null, $channel=null, \DateTime $datetime=null)
+    {
+        echo '<pre>';
+        print_r($message);
+        echo '</pre>';
+        exit;
+        $datetime->setTimezone(new \DateTimeZone('UTC'));
+        $datetime->format('Y-m-d H:i:s');
+    }
+
 }

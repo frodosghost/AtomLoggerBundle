@@ -35,15 +35,13 @@ class CatchErrorHandler extends AbstractProcessingHandler
      */
     protected function write(array $record)
     {
-        /*$this->ravenClient->captureMessage(
-            $record['formatted'],
-            array(), // $params - not used
-            $this->logLevels[$record['level']], // $level
-            false // $stack
+        $this->connection->message(
+            $record['message'],
+            $record['level'],
+            $record['level_name'],
+            $record['channel'],
+            $record['datetime']
         );
-        if ($record['level'] >= Logger::ERROR && isset($record['context']['exception'])) {
-            $this->ravenClient->captureException($record['context']['exception']);
-        }*/
     }
 
 }
