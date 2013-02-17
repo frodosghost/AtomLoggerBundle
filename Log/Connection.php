@@ -6,7 +6,7 @@ namespace Manhattan\LogBundle\Log;
 use Buzz\Browser;
 
 /**
- * Makes a connection between the eWay server and the client.
+ * Makes a connection between the Logging server and the client.
  */
 class Connection
 {
@@ -16,24 +16,20 @@ class Connection
     private $browser;
 
     /**
+     * @var Manhattan\LogBundle\Log\Site
+     */
+    private $site;
+
+    /**
      * Constructs a new Connection object that will go to a specific
      * CatchError server location.
      *
      * @param Browser $browser
      */
-    public function __construct(Browser $browser)
+    public function __construct(Browser $browser, Site $site)
     {
         $this->browser = $browser;
-    }
-
-    public function message($message, $level, $level_name=null, $channel=null, \DateTime $datetime=null)
-    {
-        echo '<pre>';
-        print_r($message);
-        echo '</pre>';
-        exit;
-        $datetime->setTimezone(new \DateTimeZone('UTC'));
-        $datetime->format('Y-m-d H:i:s');
+        $this->site = $site;
     }
 
 }
