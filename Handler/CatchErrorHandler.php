@@ -20,8 +20,9 @@ class CatchErrorHandler extends AbstractProcessingHandler
     private $connection;
 
     /**
-     * @param integer $level The minimum logging level at which this handler will be triggered
-     * @param Boolean $bubble Whether the messages that are handled can bubble up the stack or not
+     * @param Connection $connection Class passed in to Log to AtomLogger
+     * @param integer    $level      The minimum logging level at which this handler will be triggered
+     * @param Boolean    $bubble     Whether the messages that are handled can bubble up the stack or not
      */
     public function __construct(Connection $connection, $level = Logger::DEBUG, $bubble = true)
     {
