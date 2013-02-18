@@ -5,7 +5,7 @@ namespace Manhattan\LogBundle\Handler;
 use Monolog\Logger;
 use Monolog\Handler\AbstractProcessingHandler;
 
-use Manhattan\LogBundle\Log\Connection;
+use Manhattan\LogBundle\Client\Connection;
 
 /**
 * Handler to send messages to a CatchError server

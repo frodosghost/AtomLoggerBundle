@@ -1,9 +1,10 @@
 <?php
 
 
-namespace Manhattan\LogBundle\Log;
+namespace Manhattan\LogBundle\Client;
 
 use Buzz\Browser;
+use Manhattan\LogBundle\Log\Configuration;
 
 /**
  * Makes a connection between the Logging server and the client.

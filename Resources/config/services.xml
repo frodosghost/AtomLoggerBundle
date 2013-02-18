@@ -10,7 +10,7 @@
         <parameter key="buzz.browser.class">Buzz\Browser</parameter>
 
         <parameter key="manhattan.log.configuration.class">Manhattan\LogBundle\Log\Configuration</parameter>
-        <parameter key="manhattan.log.connection.class">Manhattan\LogBundle\Log\Connection</parameter>
+        <parameter key="manhattan.log.connection.class">Manhattan\LogBundle\Client\Connection</parameter>
         <parameter key="manhattan.log.handler.catcherror.class">Manhattan\LogBundle\Handler\CatchErrorHandler</parameter>
     </parameters>
 

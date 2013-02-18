@@ -4,9 +4,9 @@
  * Test the ConnectionTest
  */
 
-namespace Manhattan\LogBundle\Tests\Log;
+namespace Manhattan\LogBundle\Tests\Client;
 
-use Manhattan\LogBundle\Log\Connection;
+use Manhattan\LogBundle\Client\Connection;
 
 class ConnectionTest extends \PHPUnit_Framework_TestCase
 {
@@ -21,7 +21,7 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
             ->getMock();
 
         $handler = new Connection($mock_buzz, $mock_configuration);
-        $this->assertInstanceOf('Manhattan\LogBundle\Log\Connection', $handler);
+        $this->assertInstanceOf('Manhattan\LogBundle\Client\Connection', $handler);
     }
 
 }
