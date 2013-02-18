@@ -16,11 +16,11 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
     public function testConstruct()
     {
         $mock_buzz = $this->getMock('Buzz\Browser');
-        $mock_site = $this->getMockBuilder('Manhattan\LogBundle\Log\Site')
+        $mock_configuration = $this->getMockBuilder('Manhattan\LogBundle\Log\Configuration')
             ->disableOriginalConstructor()
             ->getMock();
 
-        $handler = new Connection($mock_buzz, $mock_site);
+        $handler = new Connection($mock_buzz, $mock_configuration);
         $this->assertInstanceOf('Manhattan\LogBundle\Log\Connection', $handler);
     }
 

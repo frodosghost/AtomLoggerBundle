@@ -26,7 +26,7 @@ class Connection
      *
      * @param Browser $browser
      */
-    public function __construct(Browser $browser, Configuration $site)
+    public function __construct(Browser $browser, Configuration $configuration)
     {
         $this->browser = $browser;
         $this->configuration = $configuration;
