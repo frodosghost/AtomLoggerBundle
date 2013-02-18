@@ -26,7 +26,7 @@
         <service id="manhattan.log.configuration" class="%manhattan.log.configuration.class%">
             <argument>%manhattan_log.configuration.api_key%</argument>
             <argument>%manhattan_log.configuration.uri%</argument>
-        </service>        
+        </service>
 
         <service id="manhattan.log.connection" class="%manhattan.log.connection.class%">
             <argument type="service" id="buzz" />
