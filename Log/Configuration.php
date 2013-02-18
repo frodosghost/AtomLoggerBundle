@@ -4,9 +4,9 @@
 namespace Manhattan\LogBundle\Log;
 
 /**
- * Creates a Site Instance to start connection to ServerLog
+ * Creates a Configuration Instance to start connection to ServerLog
  */
-class Site
+class Configuration
 {
     /**
      * @var string
@@ -19,7 +19,7 @@ class Site
     private $api_key;
 
     /**
-     * Constructs a new Site instance for connection to ServerLog
+     * Constructs a new Configuration instance for connection to ServerLog
      * 
      * @param string $uri     URI to send requests to for error handling
      * @param string $api_key API Key as required by site setup

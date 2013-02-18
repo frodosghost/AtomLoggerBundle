@@ -6,28 +6,28 @@
 
 namespace Manhattan\LogBundle\Tests\Log;
 
-use Manhattan\LogBundle\Log\Site;
+use Manhattan\LogBundle\Log\Configuration;
 
-class SiteTest extends \PHPUnit_Framework_TestCase
+class ConfigurationTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @covers Manhattan\LogBundle\Handler\CatchErrorHandler::__construct
      */
     public function testConstruct()
     {
-        $handler = new Site('foo', 'bar');
-        $this->assertInstanceOf('Manhattan\LogBundle\Log\Site', $handler);
+        $handler = new Configuration('foo', 'bar');
+        $this->assertInstanceOf('Manhattan\LogBundle\Log\Configuration', $handler);
     }
 
     public function testConstructionPHPError()
     {
         $this->setExpectedException('PHPUnit_Framework_Error_Warning');
-        $handler = new Site();
+        $handler = new Configuration();
     }
 
     public function testConstructionPHPErrorWithFirstVariable()
     {
         $this->setExpectedException('PHPUnit_Framework_Error_Warning');
-        $handler = new Site('foo');
+        $handler = new Configuration('foo');
     }
 }
