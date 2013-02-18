@@ -24,5 +24,15 @@ class ManhattanLogExtension extends Extension
 
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.xml');
+
+        if (!isset($config['api_key'])) {
+            throw new \InvalidArgumentException('AtomLogger requires the "api_key" option to be set');
+        }
+        if (!isset($config['uri'])) {
+            throw new \InvalidArgumentException('AtomLogger requires "uri" option to be set');
+        }
+
+        $container->setParameter('manhattan_log.configuration.api_key', $config['api_key']);
+        $container->setParameter('manhattan_log.configuration.uri', $config['uri']);
     }
 }

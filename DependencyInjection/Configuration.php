@@ -20,9 +20,17 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('manhattan_log');
 
-        // Here you should define the parameters that are allowed to
-        // configure your bundle. See the documentation linked above for
-        // more information on that topic.
+        $rootNode
+            ->children()
+                ->scalarNode('api_key')
+                    ->info('Set the API key for the sites configuration.')
+                    ->end()
+                ->scalarNode('uri')
+                    ->info('URL specified to connect to the ATOM Logger service.')
+                    ->example('http://atomlogger.com/api/')
+                    ->end()
+                ->end()
+            ->end();
 
         return $treeBuilder;
     }
