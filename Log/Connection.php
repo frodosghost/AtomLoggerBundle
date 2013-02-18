@@ -16,9 +16,9 @@ class Connection
     private $browser;
 
     /**
-     * @var Manhattan\LogBundle\Log\Site
+     * @var Manhattan\LogBundle\Log\Configuration
      */
-    private $site;
+    private $configuration;
 
     /**
      * Constructs a new Connection object that will go to a specific
@@ -26,10 +26,10 @@ class Connection
      *
      * @param Browser $browser
      */
-    public function __construct(Browser $browser, Site $site)
+    public function __construct(Browser $browser, Configuration $site)
     {
         $this->browser = $browser;
-        $this->site = $site;
+        $this->configuration = $configuration;
     }
 
 }
