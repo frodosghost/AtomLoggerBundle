@@ -4,11 +4,11 @@
  * Test the ConnectionTest
  */
 
-namespace Manhattan\LogBundle\Tests\Client;
+namespace Manhattan\LogBundle\Tests\Connection;
 
-use Manhattan\LogBundle\Client\Connection;
+use Manhattan\LogBundle\Connection\Client;
 
-class ConnectionTest extends \PHPUnit_Framework_TestCase
+class ClientTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @covers Manhattan\LogBundle\Handler\CatchErrorHandler::__construct
@@ -20,8 +20,8 @@ class ConnectionTest extends \PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $handler = new Connection($mock_buzz, $mock_configuration);
-        $this->assertInstanceOf('Manhattan\LogBundle\Client\Connection', $handler);
+        $handler = new Client($mock_buzz, $mock_configuration);
+        $this->assertInstanceOf('Manhattan\LogBundle\Connection\Client', $handler);
     }
 
 }
