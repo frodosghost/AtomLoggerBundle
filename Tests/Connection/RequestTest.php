@@ -4,23 +4,23 @@
  * Test the Request
  */
 
-namespace Manhattan\LogBundle\Tests\Client;
+namespace Manhattan\LogBundle\Tests\Connection;
 
-use Manhattan\LogBundle\Client\Request;
+use Manhattan\LogBundle\Connection\Request;
 
 class RequestTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @covers Manhattan\LogBundle\Client\Request::__construct
+     * @covers Manhattan\LogBundle\Connection\Request::__construct
      */
     public function testConstruct()
     {
-        $mock_connection = $this->getMockBuilder('Manhattan\LogBundle\Client\Connection')
+        $mock_client = $this->getMockBuilder('Manhattan\LogBundle\Connection\Client')
             ->disableOriginalConstructor()
             ->getMock();
 
-        $handler = new Request($mock_connection);
-        $this->assertInstanceOf('Manhattan\LogBundle\Client\Request', $handler);
+        $handler = new Request($mock_client);
+        $this->assertInstanceOf('Manhattan\LogBundle\Connection\Request', $handler);
     }
 
 }

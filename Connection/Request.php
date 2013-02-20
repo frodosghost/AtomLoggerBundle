@@ -1,29 +1,29 @@
 <?php
 
 
-namespace Manhattan\LogBundle\Client;
+namespace Manhattan\LogBundle\Connection;
 
-use Manhattan\LogBundle\Client\Connection;
+use Manhattan\LogBundle\Connection\Client;
 
 /**
- * 
+ * @author James Rickard <james@frodosghost.com>
  */
 class Request
 {
 
     /**
-     * @var Manhattan\LogBundle\Client\Connection
+     * @var Manhattan\LogBundle\Connection\Client
      */
-    private $connection;
+    private $client;
 
     /**
      * @var array
      */
     private $data;
 
-    public function __construct(Connection $connection)
+    public function __construct(Client $client)
     {
-        $this->connection = $connection;
+        $this->client = $client;
     }
 
 }
