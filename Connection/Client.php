@@ -4,6 +4,7 @@
 namespace Manhattan\LogBundle\Connection;
 
 use Buzz\Browser;
+use Buzz\Message\Response;
 use Manhattan\LogBundle\Log\Configuration;
 
 /**
@@ -33,4 +34,30 @@ class Client
         $this->configuration = $configuration;
     }
 
+    /**
+     * Send the Request
+     * 
+     * @param  Request  $request
+     * @return Response
+     */
+    public function send(Request $request)
+    {
+        $content = $request->formatData();
+
+        try {
+            $response = $this->getBrowser()->post('url', 'headers', $content);
+        } catch(\Exception $e) {
+            throw new \RuntimeException($e->getMessage());
+        }
+
+        return $response;
+    }
+
+    /**
+     * @return Buzz\Browser
+     */
+    public function getBrowser()
+    {
+        return $this->browser;
+    }
 }
