@@ -17,6 +17,9 @@ class ConfigurationTest extends \PHPUnit_Framework_TestCase
     {
         $handler = new Configuration('foo', 'bar');
         $this->assertInstanceOf('Manhattan\LogBundle\Log\Configuration', $handler);
+
+        $this->assertEquals('foo', $handler->getApiKey());
+        $this->assertEquals('bar', $handler->getUri());
     }
 
     public function testConstructionPHPError()

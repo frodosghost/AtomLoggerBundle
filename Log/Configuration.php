@@ -35,7 +35,7 @@ class Configuration
      */
     public function getUri()
     {
-        return $uri;
+        return $this->uri;
     }
 
     /**
@@ -43,7 +43,7 @@ class Configuration
      */
     public function getApiKey()
     {
-        return $api_key;
+        return $this->api_key;
     }
 
 }
