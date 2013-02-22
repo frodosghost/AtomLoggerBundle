@@ -1,9 +1,9 @@
 {
-    "name": "manhattan/log-bundle",
+    "name": "atom/logger-bundle",
     "description": "A Symfony 2 bundle for interacting with the CatchError API.",
     "type": "symfony-bundle",
     "keywords": ["errors", "api"],
-    "homepage": "https://github.com/frodosghost/ManhattanLogBundle",
+    "homepage": "https://github.com/frodosghost/AtomLoggerBundle",
     "license": "MIT",
     "authors": [
         {
@@ -16,10 +16,10 @@
         "kriswallsmith/buzz": ">=0.7",
         "manhattan/restful": "dev-master"
     },
-    "target-dir": "Manhattan/LogBundle",
+    "target-dir": "Atom/LoggerBundle",
     "autoload": {
         "psr-0": {
-            "Manhattan\\LogBundle": ""
+            "Atom\\LoggerBundle": ""
         }
     },
     "version": "1.0.0"

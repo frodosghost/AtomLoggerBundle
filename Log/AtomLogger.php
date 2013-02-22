@@ -1,11 +1,11 @@
 <?php
 
 
-namespace Manhattan\LogBundle\Log;
+namespace Atom\LoggerBundle\Log;
 
-use Manhattan\LogBundle\Connection\Request;
-use Manhattan\LogBundle\Connection\Client;
-use Manhattan\LogBundle\Exception\FormattingException;
+use Atom\LoggerBundle\Connection\Request;
+use Atom\LoggerBundle\Connection\Client;
+use Atom\LoggerBundle\Exception\FormattingException;
 
 /**
  * 
@@ -13,12 +13,12 @@ use Manhattan\LogBundle\Exception\FormattingException;
 class AtomLogger
 {
     /**
-     * @var Manhattan\LogBundle\Connection\Client
+     * @var Atom\LoggerBundle\Connection\Client
      */
     private $client;
 
     /**
-     * @var Manhattan\LogBundle\Client\Request
+     * @var Atom\LoggerBundle\Client\Request
      */
     private $request;
 

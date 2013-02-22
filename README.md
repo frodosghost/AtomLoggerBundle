@@ -1,4 +1,4 @@
-ManhattanLogBundle
+AtomLoggerBundleBundle
 ================
 
-Catch Errors and log in a external CatchError database
+Catch errors and log in a external Atom Logger database

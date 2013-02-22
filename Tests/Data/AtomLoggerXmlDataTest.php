@@ -4,21 +4,21 @@
  * Test the AtomLoggerXml
  */
 
-namespace Manhattan\LogBundle\Tests\Data;
+namespace Atom\LoggerBundle\Tests\Data;
 
-use Manhattan\LogBundle\Data\AtomLoggerXmlData;
+use Atom\LoggerBundle\Data\AtomLoggerXmlData;
 
 class AtomLoggerXmlDataTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @covers Manhattan\LogBundle\Handler\CatchErrorHandler::__construct
+     * @covers Atom\LoggerBundle\Handler\CatchErrorHandler::__construct
      */
     public function testConstruct()
     {
         $xml_data = new AtomLoggerXmlData(array('foo' => array(
             'bar' => 'foo')
         ));
-        $this->assertInstanceOf('Manhattan\LogBundle\Data\AtomLoggerXmlData', $xml_data);
+        $this->assertInstanceOf('Atom\LoggerBundle\Data\AtomLoggerXmlData', $xml_data);
     }
 
     public function testSingleRootNodeException()

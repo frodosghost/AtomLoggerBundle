@@ -4,19 +4,19 @@
  * Test the SiteTest
  */
 
-namespace Manhattan\LogBundle\Tests\Log;
+namespace Atom\LoggerBundle\Tests\Log;
 
-use Manhattan\LogBundle\Log\Configuration;
+use Atom\LoggerBundle\Log\Configuration;
 
 class ConfigurationTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @covers Manhattan\LogBundle\Handler\CatchErrorHandler::__construct
+     * @covers Atom\LoggerBundle\Handler\CatchErrorHandler::__construct
      */
     public function testConstruct()
     {
         $handler = new Configuration('foo', 'bar');
-        $this->assertInstanceOf('Manhattan\LogBundle\Log\Configuration', $handler);
+        $this->assertInstanceOf('Atom\LoggerBundle\Log\Configuration', $handler);
 
         $this->assertEquals('foo', $handler->getApiKey());
         $this->assertEquals('bar', $handler->getUri());

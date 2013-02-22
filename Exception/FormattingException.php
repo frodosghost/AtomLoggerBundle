@@ -1,6 +1,6 @@
 <?php
 
-namespace Manhattan\LogBundle\Exception;
+namespace Atom\LoggerBundle\Exception;
 
 class FormattingException extends \Exception
 {

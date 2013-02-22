@@ -1,9 +1,9 @@
 <?php
 
-namespace Manhattan\LogBundle;
+namespace Atom\LoggerBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class ManhattanLogBundle extends Bundle
+class AtomLoggerBundle extends Bundle
 {
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Manhattan\LogBundle\Data;
+namespace Atom\LoggerBundle\Data;
 
 use Restful\Data\AbstractData;
 use Restful\Exception\DataException;

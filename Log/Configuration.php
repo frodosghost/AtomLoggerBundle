@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Manhattan\LogBundle\Log;
+namespace Atom\LoggerBundle\Log;
 
 /**
  * Creates a Configuration Instance to start connection to ServerLog

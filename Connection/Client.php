@@ -1,11 +1,11 @@
 <?php
 
 
-namespace Manhattan\LogBundle\Connection;
+namespace Atom\LoggerBundle\Connection;
 
 use Buzz\Browser;
 use Buzz\Message\Response;
-use Manhattan\LogBundle\Log\Configuration;
+use Atom\LoggerBundle\Log\Configuration;
 
 /**
  * Makes a connection between the Logging server and the client.
@@ -18,7 +18,7 @@ class Client
     private $browser;
 
     /**
-     * @var Manhattan\LogBundle\Log\Configuration
+     * @var Atom\LoggerBundle\Log\Configuration
      */
     private $configuration;
 

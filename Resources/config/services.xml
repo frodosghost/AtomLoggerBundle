@@ -9,15 +9,14 @@
         <parameter key="buzz.message_factory.class">Buzz\Message\Factory\Factory</parameter>
         <parameter key="buzz.browser.class">Buzz\Browser</parameter>
 
-        <parameter key="atom.logger.configuration.class">Manhattan\LogBundle\Log\Configuration</parameter>
+        <parameter key="atom.logger.configuration.class">Atom\LoggerBundle\Log\Configuration</parameter>
         
-        <parameter key="atom.logger.client.class">Manhattan\LogBundle\Connection\Client</parameter>
-        <parameter key="atom.log.request.class">Manhattan\LogBundle\Connection\Request</parameter>
+        <parameter key="atom.logger.client.class">Atom\LoggerBundle\Connection\Client</parameter>
+        <parameter key="atom.log.request.class">Atom\LoggerBundle\Connection\Request</parameter>
         <parameter key="restful.formatter.xml.class">Restful\Formatter\XmlFormatter</parameter>
-        <parameter key="atom.log.data.format.class">Manhattan\LogBundle\Data\AtomLoggerXmlData</parameter>
-        <parameter key="atom.logger.class">Manhattan\LogBundle\Log\AtomLogger</parameter>
-
-        <parameter key="manhattan.log.handler.catcherror.class">Manhattan\LogBundle\Handler\CatchErrorHandler</parameter>
+        <parameter key="atom.log.data.format.class">Atom\LoggerBundle\Data\AtomLoggerXmlData</parameter>
+        <parameter key="atom.logger.class">Atom\LoggerBundle\Log\AtomLogger</parameter>
+        <parameter key="atom.logger.handler.logerror.class">Atom\LoggerBundle\Handler\CatchErrorHandler</parameter>
     </parameters>
 
     <services>
@@ -51,7 +50,7 @@
             <argument type="service" id="atom.logger.request" />
         </service>
 
-        <service id="manhattan.log.catecherror" class="%manhattan.log.handler.catcherror.class%">
+        <service id="atom.logger.logerror" class="%atom.logger.handler.logerror.class%">
             <argument type="service" id="atom.logger" />
         </service>
     </services>

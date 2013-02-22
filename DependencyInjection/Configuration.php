@@ -1,6 +1,6 @@
 <?php
 
-namespace Manhattan\LogBundle\DependencyInjection;
+namespace Atom\LoggerBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
@@ -18,7 +18,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('manhattan_log');
+        $rootNode = $treeBuilder->root('atom_logger');
 
         $rootNode
             ->children()

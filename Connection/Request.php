@@ -1,14 +1,14 @@
 <?php
 
 
-namespace Manhattan\LogBundle\Connection;
+namespace Atom\LoggerBundle\Connection;
 
 use Restful\Formatter\XmlFormatter;
-use Manhattan\LogBundle\Connection\Client;
-use Manhattan\LogBundle\Data\AtomLoggerXmlData;
+use Atom\LoggerBundle\Connection\Client;
+use Atom\LoggerBundle\Data\AtomLoggerXmlData;
 
 use Restful\Exception\DataException;
-use Manhattan\LogBundle\Exception\FormattingException;
+use Atom\LoggerBundle\Exception\FormattingException;
 
 /**
  * Setup the Request for sending to AtomLogger
@@ -24,7 +24,7 @@ class Request
     private $formatter;
 
     /**
-     * @var Manhattan\LogBundle\Data\AtomLoggerXmlData
+     * @var Atom\LoggerBundle\Data\AtomLoggerXmlData
      */
     private $data;
 

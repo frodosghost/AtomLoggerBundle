@@ -4,9 +4,9 @@
  * Test the CatchErrorHandler
  */
 
-namespace Manhattan\LogBundle\Tests\Handler;
+namespace Atom\LoggerBundle\Tests\Handler;
 
-use Manhattan\LogBundle\Handler\CatchErrorHandler;
+use Atom\LoggerBundle\Handler\CatchErrorHandler;
 
 class CatchErrorHandlerTest extends \PHPUnit_Framework_TestCase
 {
@@ -14,18 +14,18 @@ class CatchErrorHandlerTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->mock_logger = $this->getMockBuilder('Manhattan\LogBundle\Log\AtomLogger')
+        $this->mock_logger = $this->getMockBuilder('Atom\LoggerBundle\Log\AtomLogger')
             ->disableOriginalConstructor()
             ->getMock();
     }
 
     /**
-     * @covers Manhattan\LogBundle\Handler\CatchErrorHandler::__construct
+     * @covers Atom\LoggerBundle\Handler\CatchErrorHandler::__construct
      */
     public function testConstruct()
     {
         $handler = new CatchErrorHandler($this->mock_logger);
-        $this->assertInstanceOf('Manhattan\LogBundle\Handler\CatchErrorHandler', $handler);
+        $this->assertInstanceOf('Atom\LoggerBundle\Handler\CatchErrorHandler', $handler);
     }
 
     public function testWrite()

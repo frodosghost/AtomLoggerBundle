@@ -4,9 +4,9 @@
  * Test the Request
  */
 
-namespace Manhattan\LogBundle\Tests\Connection;
+namespace Atom\LoggerBundle\Tests\Connection;
 
-use Manhattan\LogBundle\Connection\Request;
+use Atom\LoggerBundle\Connection\Request;
 
 class RequestTest extends \PHPUnit_Framework_TestCase
 {
@@ -17,16 +17,16 @@ class RequestTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         $this->mock_formatter = $this->getMock('Restful\Formatter\XmlFormatter');
-        $this->mock_data = $this->getMock('Manhattan\LogBundle\Data\AtomLoggerXmlData');
+        $this->mock_data = $this->getMock('Atom\LoggerBundle\Data\AtomLoggerXmlData');
     }
     /**
-     * @covers Manhattan\LogBundle\Connection\Request::__construct
+     * @covers Atom\LoggerBundle\Connection\Request::__construct
      */
     public function testConstruct()
     {
         $request = new Request($this->mock_formatter, $this->mock_data);
 
-        $this->assertInstanceOf('Manhattan\LogBundle\Connection\Request', $request);
+        $this->assertInstanceOf('Atom\LoggerBundle\Connection\Request', $request);
     }
 
     public function testFormatDataException()
@@ -37,7 +37,7 @@ class RequestTest extends \PHPUnit_Framework_TestCase
 
         $request = new Request($this->mock_formatter, $this->mock_data);
 
-        $this->setExpectedException('Manhattan\LogBundle\Exception\FormattingException');
+        $this->setExpectedException('Atom\LoggerBundle\Exception\FormattingException');
         $request->formatData();
     }
 
