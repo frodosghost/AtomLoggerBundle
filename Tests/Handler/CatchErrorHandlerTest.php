@@ -6,32 +6,40 @@
 
 namespace Manhattan\LogBundle\Tests\Handler;
 
-use Symfony\Bundle\MonologBundle\Tests\TestCase;
-use Monolog\Logger;
 use Manhattan\LogBundle\Handler\CatchErrorHandler;
 
-class CatchErrorHandlerTest extends TestCase
+class CatchErrorHandlerTest extends \PHPUnit_Framework_TestCase
 {
-    /*public function setUp()
-    {
-        if (!class_exists("Raven_Client")) {
-            $this->markTestSkipped("raven/raven not installed");
-        }
+    private $mock_logger;
 
-        require_once __DIR__ . '/MockRavenClient.php';
-    }*/
+    public function setUp()
+    {
+        $this->mock_logger = $this->getMockBuilder('Manhattan\LogBundle\Log\AtomLogger')
+            ->disableOriginalConstructor()
+            ->getMock();
+    }
 
     /**
      * @covers Manhattan\LogBundle\Handler\CatchErrorHandler::__construct
      */
     public function testConstruct()
     {
-        $mock_connection = $this->getMockBuilder('Manhattan\LogBundle\Client\Connection')
-            ->disableOriginalConstructor()
-            ->getMock();
-
-        $handler = new CatchErrorHandler($mock_connection);
+        $handler = new CatchErrorHandler($this->mock_logger);
         $this->assertInstanceOf('Manhattan\LogBundle\Handler\CatchErrorHandler', $handler);
+    }
+
+    public function testWrite()
+    {
+        $handler = new CatchErrorHandler($this->mock_logger);
+        $this->assertFalse($handler->handle(array(
+            'message' => 'test',
+            'context' => array(),
+            'level' => 500,
+            'level_name' => 'CRITICAL',
+            'channel' => 'test',
+            'datetime' => \DateTime::createFromFormat('U.u', sprintf('%.6F', microtime(true))),
+            'extra' => array(),
+        )));
     }
 
 }

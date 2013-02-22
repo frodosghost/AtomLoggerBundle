@@ -5,30 +5,30 @@ namespace Manhattan\LogBundle\Handler;
 use Monolog\Logger;
 use Monolog\Handler\AbstractProcessingHandler;
 
-use Manhattan\LogBundle\Client\Connection;
+use Manhattan\LogBundle\Log\AtomLogger;
 
 /**
-* Handler to send messages to a CatchError server
+* Handler to send messages to a AtomLogger server
 *
 * @author James Rickard <james@frodosghost.com>
 */
 class CatchErrorHandler extends AbstractProcessingHandler
 {
     /**
-     * @var Connection
+     * @var AtomLogger
      */
-    private $connection;
+    private $atomLogger;
 
     /**
-     * @param Connection $connection Class passed in to Log to AtomLogger
-     * @param integer    $level      The minimum logging level at which this handler will be triggered
-     * @param Boolean    $bubble     Whether the messages that are handled can bubble up the stack or not
+     * @param AtomLogger $atomLogger Class passed in to Log to AtomLogger
+     * @param integer    $level       The minimum logging level at which this handler will be triggered
+     * @param Boolean    $bubble      Whether the messages that are handled can bubble up the stack or not
      */
-    public function __construct(Connection $connection, $level = Logger::DEBUG, $bubble = true)
+    public function __construct(AtomLogger $atomLogger, $level = Logger::DEBUG, $bubble = true)
     {
         parent::__construct($level, $bubble);
 
-        $this->connection = $connection;
+        $this->atomLogger = $atomLogger;
     }
 
     /**
@@ -36,7 +36,7 @@ class CatchErrorHandler extends AbstractProcessingHandler
      */
     protected function write(array $record)
     {
-        $this->connection->message(
+        $this->atomLogger->message(
             $record['message'],
             $record['level'],
             $record['level_name'],
