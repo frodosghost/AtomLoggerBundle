@@ -32,7 +32,7 @@ class ManhattanLogExtension extends Extension
             throw new \InvalidArgumentException('AtomLogger requires "uri" option to be set');
         }
 
-        $container->setParameter('manhattan_log.configuration.api_key', $config['api_key']);
-        $container->setParameter('manhattan_log.configuration.uri', $config['uri']);
+        $container->setParameter('atom.logger.configuration.api_key', $config['api_key']);
+        $container->setParameter('atom.logger.configuration.uri', $config['uri']);
     }
 }
