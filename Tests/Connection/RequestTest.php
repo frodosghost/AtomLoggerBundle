@@ -37,7 +37,7 @@ class RequestTest extends \PHPUnit_Framework_TestCase
 
         $request = new Request($this->mock_formatter, $this->mock_data);
 
-        $this->setExpectedException('Manhattan\LogBundle\Exception\ConfigurationException');
+        $this->setExpectedException('Manhattan\LogBundle\Exception\FormattingException');
         $request->formatData();
     }
 

@@ -8,7 +8,7 @@ use Manhattan\LogBundle\Connection\Client;
 use Manhattan\LogBundle\Data\AtomLoggerXmlData;
 
 use Restful\Exception\DataException;
-use Manhattan\LogBundle\Exception\ConfigurationException;
+use Manhattan\LogBundle\Exception\FormattingException;
 
 /**
  * Setup the Request for sending to AtomLogger
@@ -24,7 +24,7 @@ class Request
     private $formatter;
 
     /**
-     * @var Restful\Data\AbstractData
+     * @var Manhattan\LogBundle\Data\AtomLoggerXmlData
      */
     private $data;
 
@@ -53,7 +53,7 @@ class Request
         try {
             $formatted = $this->formatter->format();
         } catch (DataException $e) {
-            throw new ConfigurationException('The provided data has been incorrectly formatted.');
+            throw new FormattingException('The provided data has been incorrectly formatted.');
         }
 
         return $formatted;
