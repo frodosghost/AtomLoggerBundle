@@ -39,12 +39,14 @@ class AtomLogger
      */
     public function message($message, $level, $level_name, $channel, $datetime)
     {
+        $datetime->setTimezone(new \DateTimeZone('UTC'));
+
         $this->request->setData(array(
             'message'     => $message,
             'status_code' => $level,
             'status_name' => $level_name,
             'channel'     => $channel,
-            'date'        => $datetime
+            'date'        => $datetime->format('Y-m-d H:i:s')
         ));
 
         try {

@@ -45,7 +45,7 @@ class Client
         $content = $request->formatData();
 
         try {
-            $response = $this->getBrowser()->post('url', 'headers', $content);
+            $response = $this->getBrowser()->post($this->getConfiguration()->getUri(), array(), $content);
         } catch(\Exception $e) {
             throw new \RuntimeException($e->getMessage());
         }
@@ -60,4 +60,13 @@ class Client
     {
         return $this->browser;
     }
+
+    /**
+     * @return Atom\LoggerBundle\Log\Configuration
+     */
+    public function getConfiguration()
+    {
+        return $this->configuration;
+    }
+
 }
