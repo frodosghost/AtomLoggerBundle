@@ -10,13 +10,21 @@
         <parameter key="buzz.browser.class">Buzz\Browser</parameter>
 
         <parameter key="manhattan.log.configuration.class">Manhattan\LogBundle\Log\Configuration</parameter>
-        <parameter key="manhattan.log.connection.class">Manhattan\LogBundle\Client\Connection</parameter>
+        
+        <parameter key="manhattan.log.client.class">Manhattan\LogBundle\Connection\Client</parameter>
+        <parameter key="atom.log.request.class">Manhattan\LogBundle\Connection\Request</parameter>
+        <parameter key="restful.formatter.xml.class">Restful\Formatter\XmlFormatter</parameter>
+        <parameter key="atom.log.data.format.class">Manhattan\LogBundle\Data\AtomLoggerXmlData</parameter>
+        <parameter key="atom.logger.class">Manhattan\LogBundle\Log\AtomLogger</parameter>
+
         <parameter key="manhattan.log.handler.catcherror.class">Manhattan\LogBundle\Handler\CatchErrorHandler</parameter>
     </parameters>
 
     <services>
         <service id="buzz.message_factory" class="%buzz.message_factory.class%" public="false" />
         <service id="buzz.client" class="%buzz.client.class%" public="false" />
+        <service id="restful.xml_formatter" class="%restful.formatter.xml.class%" public="false" />
+        <service id="atom.log.data.formatter" class="%atom.log.data.format.class%" public="false" />
 
         <service id="buzz" class="%buzz.browser.class%">
             <argument type="service" id="buzz.client" />
@@ -28,13 +36,23 @@
             <argument>%manhattan_log.configuration.uri%</argument>
         </service>
 
-        <service id="manhattan.log.connection" class="%manhattan.log.connection.class%">
+        <service id="manhattan.log.client" class="%manhattan.log.client.class%">
             <argument type="service" id="buzz" />
             <argument type="service" id="manhattan.log.configuration" />
         </service>
 
+        <service id="atom.logger.request" class="%atom.log.request.class%">
+            <argument type="service" id="restful.xml_formatter" />
+            <argument type="service" id="atom.log.data.formatter" />
+        </service>
+
+        <service id="atom.logger" class="%atom.logger.class%">
+            <argument type="service" id="manhattan.log.client" />
+            <argument type="service" id="atom.logger.request" />
+        </service>
+
         <service id="manhattan.log.catecherror" class="%manhattan.log.handler.catcherror.class%">
-            <argument type="service" id="manhattan.log.connection" />
+            <argument type="service" id="atom.logger" />
         </service>
     </services>
 
