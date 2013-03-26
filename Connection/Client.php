@@ -5,7 +5,6 @@ namespace Atom\LoggerBundle\Connection;
 
 use Buzz\Browser;
 use Buzz\Message\Response;
-use Atom\LoggerBundle\Log\Configuration;
 
 /**
  * Makes a connection between the Logging server and the client.
