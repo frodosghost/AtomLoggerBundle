@@ -24,11 +24,15 @@ class CatchErrorHandler extends AbstractProcessingHandler
      * @param integer    $level      The minimum logging level at which this handler will be triggered
      * @param Boolean    $bubble     Whether the messages that are handled can bubble up the stack or not
      */
-    public function __construct(AtomLogger $atomLogger, $level = Logger::DEBUG, $bubble = true)
+    public function __construct(AtomLogger $atomLogger, $siteKey, $level = Logger::DEBUG, $bubble = true)
     {
         parent::__construct($level, $bubble);
 
         $this->atomLogger = $atomLogger;
+
+        if (!is_null($siteKey)) {
+            $this->atomLogger->getClient()->setSiteKey($siteKey);
+        }
     }
 
     /**

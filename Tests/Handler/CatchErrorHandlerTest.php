@@ -10,13 +10,27 @@ use Atom\LoggerBundle\Handler\CatchErrorHandler;
 
 class CatchErrorHandlerTest extends \PHPUnit_Framework_TestCase
 {
-    private $mock_logger;
+    private $mockLogger;
 
     public function setUp()
     {
-        $this->mock_logger = $this->getMockBuilder('Atom\LoggerBundle\Log\AtomLogger')
+        $mockClient = $this->getMockBuilder('Atom\LoggerBundle\Connection\Client')
             ->disableOriginalConstructor()
             ->getMock();
+
+        $mockRequest = $this->getMockBuilder('Atom\LoggerBundle\Connection\Request')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        /*$mockClient->expects($this->any())
+             ->method('setSiteKey')
+             ->with('foo');
+             ->will($this->throwException(new \Restful\Exception\DataException));*/
+
+        $this->mockLogger = $this->getMock('Atom\LoggerBundle\Log\AtomLogger', array(), array($mockClient, $mockRequest));
+        $this->mockLogger->expects($this->any())
+             ->method('getClient')
+             ->will($this->returnValue($mockClient));
     }
 
     /**
@@ -24,13 +38,13 @@ class CatchErrorHandlerTest extends \PHPUnit_Framework_TestCase
      */
     public function testConstruct()
     {
-        $handler = new CatchErrorHandler($this->mock_logger);
+        $handler = new CatchErrorHandler($this->mockLogger, 'foo');
         $this->assertInstanceOf('Atom\LoggerBundle\Handler\CatchErrorHandler', $handler);
     }
 
     public function testWrite()
     {
-        $handler = new CatchErrorHandler($this->mock_logger);
+        $handler = new CatchErrorHandler($this->mockLogger, 'foo');
         $this->assertFalse($handler->handle(array(
             'message' => 'test',
             'context' => array(),

@@ -19,9 +19,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         $this->mock_buzz = $this->getMock('Buzz\Browser');
-        $this->mock_configuration = $this->getMockBuilder('Atom\LoggerBundle\Log\Configuration')
-            ->disableOriginalConstructor()
-            ->getMock();
+        $this->mockListener = $this->getMock('Buzz\Listener\ListenerInterface');
         $this->mock_request = $this->getMockBuilder('Atom\LoggerBundle\Connection\Request')
             ->disableOriginalConstructor()
             ->getMock();
@@ -32,7 +30,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
      */
     public function testConstruct()
     {
-        $handler = new Client($this->mock_buzz, $this->mock_configuration);
+        $handler = new Client($this->mock_buzz, $this->mockListener, 'foo');
         $this->assertInstanceOf('Atom\LoggerBundle\Connection\Client', $handler);
     }
 
@@ -42,7 +40,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
             ->method('post')
             ->will($this->throwException(new \Exception));
 
-        $client = new Client($this->mock_buzz, $this->mock_configuration);
+        $client = new Client($this->mock_buzz, $this->mockListener, 'foo');
 
         $this->setExpectedException('RuntimeException');
         $client->send($this->mock_request);
@@ -54,7 +52,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
             ->method('post')
             ->will($this->returnValue('foo'));
 
-        $client = new Client($this->mock_buzz, $this->mock_configuration);
+        $client = new Client($this->mock_buzz, $this->mockListener, 'foo');
 
         $this->assertEquals('foo', $client->send($this->mock_request));
     }
