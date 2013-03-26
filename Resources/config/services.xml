@@ -36,6 +36,7 @@
 
         <service id="atom.logger.client" class="%atom.logger.client.class%">
             <argument type="service" id="buzz" />
+            <argument type="service" id="atom.logger.buzz.listener" />
             <argument>%atom.logger.configuration.uri%</argument>
         </service>
 

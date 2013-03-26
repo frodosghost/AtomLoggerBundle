@@ -11,32 +11,34 @@ class AtomRequestListener implements ListenerInterface
     /**
      * @var string
      */
-    private $public_key;
+    private $publicKey;
 
     /**
      * @var string
      */
-    private $private_key;
+    private $privateKey;
 
-    public function __construct($public_key, $private_key)
+    /**
+     * @var string
+     */
+    private $siteKey;
+
+    public function __construct($publicKey, $privateKey)
     {
-        $this->public_key  = $public_key;
-        $this->private_key = $private_key;
+        $this->publicKey  = $publicKey;
+        $this->privateKey = $privateKey;
     }
 
     public function preSend(RequestInterface $request)
     {
-        if ($this->public_key === null) {
+        if ($this->publicKey === null) {
             throw new \RuntimeException("You have to set credentials before using AtomRequestListener with Buzz.");
         }
 
         $digest = date('c') ."\n". $request->getMethod() ."\n". $request->getContentType() ."\n". md5($request->getContent());
-        $signature = base64_encode(hash_hmac('sha1', $digest, $this->private_key, TRUE));
+        $signature = base64_encode(hash_hmac('sha1', $digest, $this->privateKey, TRUE));
 
-        $request->addHeader('Authorization: Atom {$this->public_key}:{$signature}');
-        //$header = "X-Atom-Auth: UsernameToken Username=\"{$this->public_key}\", PasswordDigest=\"{$passwordDigest}\", Nonce=\"{$nonce64}\", Date=\"{$date}\"";
-
-        //$request->addHeader($header);
+        $request->addHeader('Authorization: Atom {$this->publicKey}:{$signature}');
     }
 
     public function postSend(RequestInterface $request, MessageInterface $response)
