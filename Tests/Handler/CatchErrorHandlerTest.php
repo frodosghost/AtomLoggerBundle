@@ -22,11 +22,6 @@ class CatchErrorHandlerTest extends \PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        /*$mockClient->expects($this->any())
-             ->method('setSiteKey')
-             ->with('foo');
-             ->will($this->throwException(new \Restful\Exception\DataException));*/
-
         $this->mockLogger = $this->getMock('Atom\LoggerBundle\Log\AtomLogger', array(), array($mockClient, $mockRequest));
         $this->mockLogger->expects($this->any())
              ->method('getClient')
