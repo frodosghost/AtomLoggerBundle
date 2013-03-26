@@ -8,8 +8,7 @@
         <parameter key="buzz.client.class">Buzz\Client\Curl</parameter>
         <parameter key="buzz.message_factory.class">Buzz\Message\Factory\Factory</parameter>
         <parameter key="buzz.browser.class">Buzz\Browser</parameter>
-
-        <parameter key="atom.logger.configuration.class">Atom\LoggerBundle\Log\Configuration</parameter>
+        <parameter key="atom.logger.buzz.listener">Atom\LoggerBundle\EventListener\AtomRequestListener</parameter>
         
         <parameter key="atom.logger.client.class">Atom\LoggerBundle\Connection\Client</parameter>
         <parameter key="atom.log.request.class">Atom\LoggerBundle\Connection\Request</parameter>
@@ -30,14 +29,14 @@
             <argument type="service" id="buzz.message_factory" />
         </service>
 
-        <service id="atom.logger.configuration" class="%atom.logger.configuration.class%">
-            <argument>%atom.logger.configuration.api_key%</argument>
-            <argument>%atom.logger.configuration.uri%</argument>
+        <service id="atom.logger.buzz.listener" class="%atom.logger.buzz.listener%">
+            <argument>%atom.logger.authentication.public_key%</argument>
+            <argument>%atom.logger.authentication.private_key%</argument>
         </service>
 
         <service id="atom.logger.client" class="%atom.logger.client.class%">
             <argument type="service" id="buzz" />
-            <argument type="service" id="atom.logger.configuration" />
+            <argument>%atom.logger.configuration.uri%</argument>
         </service>
 
         <service id="atom.logger.request" class="%atom.log.request.class%">
@@ -50,9 +49,9 @@
             <argument type="service" id="atom.logger.request" />
         </service>
 
-        <service id="atom.logger.logerror" class="%atom.logger.handler.logerror.class%">
+        <!--service id="atom.logger.logerror" class="%atom.logger.handler.logerror.class%">
             <argument type="service" id="atom.logger" />
-        </service>
+        </service-->
     </services>
 
 </container>

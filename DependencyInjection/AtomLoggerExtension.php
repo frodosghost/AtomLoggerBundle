@@ -25,14 +25,18 @@ class AtomLoggerExtension extends Extension
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.xml');
 
-        if (!isset($config['api_key'])) {
-            throw new \InvalidArgumentException('AtomLogger requires the "api_key" option to be set');
+        if (!isset($config['user']['public_key'])) {
+            throw new \InvalidArgumentException('You must provide the "Public Key" for the AtomLogger User.');
+        }
+        if (!isset($config['user']['private_key'])) {
+            throw new \InvalidArgumentException('You must provide the "Private Key" for the AtomLogger User.');
         }
         if (!isset($config['uri'])) {
             throw new \InvalidArgumentException('AtomLogger requires "uri" option to be set');
         }
 
-        $container->setParameter('atom.logger.configuration.api_key', $config['api_key']);
+        $container->setParameter('atom.logger.authentication.public_key', $config['user']['public_key']);
+        $container->setParameter('atom.logger.authentication.private_key', $config['user']['private_key']);
         $container->setParameter('atom.logger.configuration.uri', $config['uri']);
     }
 }

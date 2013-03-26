@@ -54,7 +54,14 @@ class AtomLogger
         } catch (FormattingException $e) {
 
         }
+    }
 
+    /**
+     * @return Atom\LoggerBundle\Connection\Client
+     */
+    public function getClient()
+    {
+        return $this->client;
     }
 
 }

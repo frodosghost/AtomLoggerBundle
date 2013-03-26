@@ -22,9 +22,16 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
-                ->scalarNode('api_key')
-                    ->info('Set the API key for the sites configuration.')
+                ->arrayNode('user')
+                    ->children()
+                        ->scalarNode('public_key')
+                            ->info('Set account public key')
+                            ->end()
+                        ->scalarNode('private_key')
+                            ->info('Sets account private key')
+                            ->end()
                     ->end()
+                ->end()
                 ->scalarNode('uri')
                     ->info('URL specified to connect to the ATOM Logger service.')
                     ->example('http://atomlogger.com/api/')

@@ -17,20 +17,21 @@ class Client
     private $browser;
 
     /**
-     * @var Atom\LoggerBundle\Log\Configuration
+     * @var string
      */
-    private $configuration;
+    private $atomUri;
 
     /**
      * Constructs a new Connection object that will go to a specific
      * CatchError server location.
      *
      * @param Browser $browser
+     * @param string  $atomUri
      */
-    public function __construct(Browser $browser, Configuration $configuration)
+    public function __construct(Browser $browser, $atomUri)
     {
         $this->browser = $browser;
-        $this->configuration = $configuration;
+        $this->atomUri = $atomUri;
     }
 
     /**
@@ -44,7 +45,7 @@ class Client
         $content = $request->formatData();
 
         try {
-            $response = $this->getBrowser()->post($this->getConfiguration()->getUri(), array(), $content);
+            $response = $this->getBrowser()->post($this->getAtomUri(), array(), $content);
         } catch(\Exception $e) {
             throw new \RuntimeException($e->getMessage());
         }
@@ -61,11 +62,11 @@ class Client
     }
 
     /**
-     * @return Atom\LoggerBundle\Log\Configuration
+     * @return string
      */
-    public function getConfiguration()
+    public function getAtomUri()
     {
-        return $this->configuration;
+        return $this->atomUri;
     }
 
 }
