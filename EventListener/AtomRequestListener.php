@@ -35,7 +35,7 @@ class AtomRequestListener implements ListenerInterface
             throw new \RuntimeException("You have to set credentials before using AtomRequestListener with Buzz.");
         }
 
-        $digest = date('c') ."\n". $request->getMethod() ."\n". $request->getContentType() ."\n". md5($request->getContent());
+        $digest = date('c') ."\n". $request->getMethod() ."\n". $request->getMethod() ."\n". md5($request->getContent());
         $signature = base64_encode(hash_hmac('sha1', $digest, $this->privateKey, TRUE));
 
         $request->addHeader('Authorization: Atom {$this->publicKey}:{$signature}');
