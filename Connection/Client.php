@@ -50,7 +50,7 @@ class Client
      */
     public function send(Request $request)
     {
-        $headers = array();
+        $headers = array('Content-Type' => $request->getContentType());
         $content = $request->formatData();
 
         if ($this->hasSiteKey()) {
