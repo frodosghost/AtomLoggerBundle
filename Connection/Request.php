@@ -59,4 +59,9 @@ class Request
         return $formatted;
     }
 
+    public function getContentType()
+    {
+        return $this->formatter->getContentType();
+    }
+
 }

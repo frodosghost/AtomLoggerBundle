@@ -51,4 +51,15 @@ class RequestTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals('<foo></foo>', $request->formatData());
     }
+
+    public function testContentType()
+    {
+        $this->mock_formatter->expects($this->any())
+             ->method('getContentType')
+             ->will($this->returnValue('foo/bar'));
+
+        $request = new Request($this->mock_formatter, $this->mock_data);
+
+        $this->assertEquals('foo/bar', $request->getContentType());
+    }
 }
