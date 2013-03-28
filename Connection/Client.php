@@ -54,7 +54,7 @@ class Client
         $content = $request->formatData();
 
         if ($this->hasSiteKey()) {
-            $headers = array_merge($headers, array('x-atom-site' => $this->getSiteKey()));
+            $headers = array_merge($headers, array('x-atom-log-id' => $this->getSiteKey()));
         }
 
         try {
