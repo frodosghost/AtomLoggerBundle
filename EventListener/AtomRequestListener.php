@@ -38,7 +38,7 @@ class AtomRequestListener implements ListenerInterface
         $digest = date('c') ."\n". $request->getMethod() ."\n". $request->getHeader('Content-Type') ."\n". md5($request->getContent());
         $signature = base64_encode(hash_hmac('sha1', $digest, $this->privateKey, TRUE));
 
-        $request->addHeader('Authorization: Atom {$this->publicKey}:{$signature}');
+        $request->addHeader("Authorization: Atom {$this->publicKey}:{$signature}");
     }
 
     public function postSend(RequestInterface $request, MessageInterface $response)
