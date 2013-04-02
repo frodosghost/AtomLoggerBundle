@@ -40,7 +40,10 @@ class Client
         $this->atomUri = $atomUri;
 
         $this->browser->addListener($headerListener);
-        $this->browser->getClient()->setTimeout(1337);
+
+        if ($this->browser->getClient() instanceof Buzz\Client\AbstractClient) {
+            $this->browser->getClient()->setTimeout(1337);
+        }
     }
 
     /**

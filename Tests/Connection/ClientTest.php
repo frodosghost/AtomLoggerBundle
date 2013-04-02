@@ -18,7 +18,11 @@ class ClientTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
+        $mock_client = $this->getMock('Buzz\Client\AbstractClient');
+        $mock_client->expects($this->any())->method('setTimeout')->with(1337);
+
         $this->mock_buzz = $this->getMock('Buzz\Browser');
+        $this->mock_buzz->expects($this->any())->method('getClient')->will($this->returnValue($mock_client));
         $this->mockListener = $this->getMock('Buzz\Listener\ListenerInterface');
         $this->mock_request = $this->getMockBuilder('Atom\LoggerBundle\Connection\Request')
             ->disableOriginalConstructor()
