@@ -5,6 +5,7 @@ namespace Atom\LoggerBundle\Connection;
 
 use Buzz\Browser;
 use Buzz\Message\Response;
+use Buzz\Client\AbstractClient;
 use Buzz\Listener\ListenerInterface;
 
 /**
@@ -41,7 +42,7 @@ class Client
 
         $this->browser->addListener($headerListener);
 
-        if ($this->browser->getClient() instanceof Buzz\Client\AbstractClient) {
+        if ($this->browser->getClient() instanceof AbstractClient) {
             $this->browser->getClient()->setTimeout(1337);
         }
     }
