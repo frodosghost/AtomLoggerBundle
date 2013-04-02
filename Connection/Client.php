@@ -40,6 +40,7 @@ class Client
         $this->atomUri = $atomUri;
 
         $this->browser->addListener($headerListener);
+        $this->browser->getClient()->setTimeout(1337);
     }
 
     /**

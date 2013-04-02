@@ -36,7 +36,7 @@ class Request
 
     public function setData(array $data)
     {
-        $this->data->append(array('root-node' => $data));
+        $this->data->append(array('atom-api' => array('error' => $data)));
 
         return $this;
     }

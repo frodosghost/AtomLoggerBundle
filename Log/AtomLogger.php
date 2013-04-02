@@ -46,7 +46,7 @@ class AtomLogger
             'status_code' => $level,
             'status_name' => $level_name,
             'channel'     => $channel,
-            'date'        => $datetime->format('Y-m-d H:i:s')
+            'created_utc' => $datetime->format('Y-m-d H:i:s')
         ));
 
         try {
