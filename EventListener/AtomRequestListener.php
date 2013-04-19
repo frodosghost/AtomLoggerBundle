@@ -37,11 +37,13 @@ class AtomRequestListener implements ListenerInterface
 
         $time = new \DateTime();
         $time->setTimezone(new \DateTimeZone('UTC'));
+        $time_format = $time->format('c');
 
-        $digest = $time->format('c') ."\n". $request->getMethod() ."\n". $request->getHeader('Content-Type') ."\n". md5($request->getContent());
+        $digest = $time_format ."\n". $request->getMethod() ."\n". $request->getHeader('Content-Type') ."\n". md5($request->getContent());
         $signature = base64_encode(hash_hmac('sha1', $digest, $this->privateKey, TRUE));
 
         $request->addHeader("Authorization: Atom {$this->publicKey}:{$signature}");
+        $request->addHeader("Date: $time_format");
     }
 
     public function postSend(RequestInterface $request, MessageInterface $response)
