@@ -34,7 +34,8 @@ class Configuration implements ConfigurationInterface
                 ->end()
                 ->scalarNode('uri')
                     ->info('URL specified to connect to the ATOM Logger service.')
-                    ->example('http://atomlogger.com/api/')
+                    ->defaultValue('http://atomlogger.com/api/new.xml')
+                    ->example('http://atomlogger.com/api/new.xml')
                     ->end()
                 ->end()
             ->end();

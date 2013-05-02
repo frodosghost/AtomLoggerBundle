@@ -40,7 +40,6 @@ Configuration
         user:
             public_key:  %atom_public%
             private_key: %atom_private%
-        uri:     http://atomlogger.com/api/new.xml
     ```
 1.1. Then you can add the public and private keys provided by the AtomLogger Dashboard into your parameters file.
 
