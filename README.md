@@ -1,7 +1,7 @@
 AtomLoggerBundle
 ================
 
-Catch errors thrown in Symfony2 applications and log in a external Atom Logger database.
+Catch errors thrown in Symfony2 applications and log in a external [Atom Logger](http://atomlogger.com/) error database.
 
 Documentation
 -------------

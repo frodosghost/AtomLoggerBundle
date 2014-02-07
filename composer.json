@@ -1,6 +1,6 @@
 {
     "name": "atom/logger-bundle",
-    "description": "A Symfony 2 bundle for interacting with the CatchError API.",
+    "description": "A Symfony 2 bundle for interacting with the AtomLogger API.",
     "type": "symfony-bundle",
     "keywords": ["errors", "api"],
     "homepage": "https://github.com/frodosghost/AtomLoggerBundle",
