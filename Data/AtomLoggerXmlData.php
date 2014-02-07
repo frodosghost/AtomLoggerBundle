@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of The Atom Logger Bundle
+ *
+ * (c) James Rickard <james@frodosghost.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 namespace Atom\LoggerBundle\Data;
 
 use Restful\Data\AbstractData;
@@ -8,7 +17,7 @@ use Restful\Exception\DataException;
 /**
  * This class validates the provided data to be correct for sending
  * to AtomLogger
- * 
+ *
  * @author James Rickard <james@frodosghost.com>
  */
 class AtomLoggerXmlData extends AbstractData
@@ -34,7 +43,7 @@ class AtomLoggerXmlData extends AbstractData
 
     /**
      * Fields required to be provided to include with the Request Data
-     * 
+     *
      * @return array
      */
     private function getFields()
@@ -46,7 +55,7 @@ class AtomLoggerXmlData extends AbstractData
 
     /**
      * Accessor to return Root Node
-     * 
+     *
      * @return string
      */
     private function getRootNode()
@@ -56,7 +65,7 @@ class AtomLoggerXmlData extends AbstractData
 
     /**
      * Accessor to return nodes from Data
-     * 
+     *
      * @return ArrayIterator
      */
     private function getNodes()

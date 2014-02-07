@@ -1,13 +1,21 @@
 <?php
 
-/**
- * Test the ConnectionTest
+/*
+ * This file is part of The Atom Logger Bundle
+ *
+ * (c) James Rickard <james@frodosghost.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
  */
 
 namespace Atom\LoggerBundle\Tests\Connection;
 
 use Atom\LoggerBundle\Connection\Client;
 
+/**
+ * Test the ConnectionTest
+ */
 class ClientTest extends \PHPUnit_Framework_TestCase
 {
     private $mock_buzz;
